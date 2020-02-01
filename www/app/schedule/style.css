@@ -1,0 +1,74 @@
+/* ----------------------------------------------------- */
+/*               Calendar                                */
+/* ----------------------------------------------------- */
+
+/* アイコン */
+.fc-icon-fa {
+  font: normal normal normal 14px/1 FontAwesome;
+}
+
+/* タイトル */
+#myCalendar .fc-toolbar h2 {
+	display: inline;
+}
+
+/* 前へ、次へ */
+#myCalendar .fc-button {
+	border: none;
+	background-color: transparent;
+	background-image: none;
+	box-shadow: none;
+}
+#myCalendar .fc-prev-button.fc-button.fc-state-default .fc-icon,
+#myCalendar .fc-next-button.fc-button.fc-state-default .fc-icon {
+    font-size: 200%;
+}
+
+.hook-message .fc-icon.fc-icon-fa {
+    color: #999999;
+}
+
+/* ヘッダ部分 */
+#myCalendar .fc-icon.fc-icon-fa.fa-filter,
+#myCalendar .fc-icon.fc-icon-fa.fa-check-square-o {
+    font-size: 120%;
+    color: #999999;
+}
+#myCalendar button {
+    padding: 0px 5px;
+}
+#myCalendar .fc-state-default.fc-corner-right {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+#myCalendar .fc-state-default.fc-corner-left {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+#myCalendar .fc-toolbar {
+    text-align: center;
+}
+#myCalendar .fc-toolbar .fc-right {
+    visibility: hidden;
+}
+
+/* 週末色変更 */
+#myCalendar .fc-sat { color: #0063A4; }
+#myCalendar .fc-sun { color: #C40026;  }
+
+/* ヘッダ */
+.fc-widget-header th {
+	background-color: #ccd8e2;
+}
+
+h1 {
+	text-align: center;
+}
+
+/* アラーム有無 */
+.alert_active {
+	color: #E17B35;
+}
+.alert_passive {
+	color: #999999;
+}

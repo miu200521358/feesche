@@ -1,0 +1,46 @@
+<ons-page modifier="normal">
+	
+	<my-contents>
+		
+		<div class="attention">
+			<dl>
+				<dt>{{ 'subscription.status' | translate }}</dt>
+				<dd id="status">
+					<span ng-if="isSubscriptionMonthly">{{ 'subscription.status_monthly' | translate }}</span>
+					<span ng-if="isSubscriptionYearly">{{ 'subscription.status_yearly' | translate }}</span>
+					<span ng-if="!isSubscriptionMonthly && !isSubscriptionYearly">{{ 'subscription.status_free' | translate }}</span>
+				</dd>
+				<dt>{{ 'subscription.benefits' | translate }}</dt>
+				<dd class="in-list">
+					<ul>
+						<li>{{ 'subscription.benefits1' | translate }}</li>
+						<li>{{ 'subscription.benefits2' | translate }}</li>
+						<li>{{ 'subscription.benefits3' | translate }}</li>
+						<!-- <li>{{ 'subscription.benefits4' | translate }}</li> -->
+						<li>{{ 'subscription.benefits5' | translate }}</li>
+					</ul>
+				</dd>
+				<dt>{{ 'subscription.subscription' | translate }}</dt>
+				<dd class="in-list">
+					<ons-button id="subscription_monthly" modifier="large" ng-disabled="isSubscriptionMonthly" ng-click="subscribeMonthly();">{{ 'subscription.subscription_monthly' | translate }} {{ priceSubscriptionMonthly }} {{'subscription.subscription_per_month' | translate}}</ons-button>
+					<ons-button id="subscription_yearly" modifier="large" ng-disabled="isSubscriptionYearly" ng-click="subscribeYearly();">{{ 'subscription.subscription_yearly' | translate }} {{priceSubscriptionYearly}} {{'subscription.subscription_per_year' | translate}}</ons-button>
+				</dd>
+				<dt>{{ 'subscription.subscription_cancel' | translate }}</dt>
+				<dd class="in-list" id="subscription_cancel">
+					<div ng-show="isAndroid()">
+							{{ 'subscription.subscription_cancel_android' | translate }}<br>
+							{{ 'subscription.subscription_cancel_detail' | translate }}<br>
+							<a href="https://support.google.com/googleplay/answer/7018481?co=GENIE.Platform%3DAndroid&hl=ja" target="_system">Google Play Help</a>
+					</div>
+					<div ng-show="isIOS()">
+							{{ 'subscription.subscription_cancel_ios' | translate }}<br>
+							{{ 'subscription.subscription_cancel_detail' | translate }}<br>
+							<a href="https://support.apple.com/ja-jp/HT202039" target="_system">App Store Help</a>
+					</div>
+				</dd>
+			</dl>
+		</div>
+		
+	</my-contents>
+	
+</ons-page>

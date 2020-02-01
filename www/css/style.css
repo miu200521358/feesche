@@ -1,0 +1,282 @@
+
+/* ------------------- フォント ------------------------ */
+/*
+ * "Lato" is lisenced under the SIL Open Font License 1.1
+ * http://fonts.googleapis.com
+ * https://www.google.com/fonts/attribution
+ * http://scripts.sil.org/OFL
+ */
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+
+*:not(.fa) {
+    font-family: Lato, sans-serif !important;
+}
+
+/* 記号フォント */
+/*
+ * .fa {
+ *   font: normal normal normal 14px/1 FontAwesome;
+ * }
+ */
+
+/* ------------------- 色指定 ------------------------ */
+:root {
+	--normal-font-color: #555555;
+	--normal-bg-color: #F5F5F5;
+	--action-icon-color: #FFFFFF;
+	--normal-button-color: #5BB7D1;
+	--delete-button-color: #5BB7D1;
+	--invalid-font-color: #C5004C;
+}
+
+/* ------------------- 全体配置 ------------------------ */
+
+/* デフォルト画面 */
+.page--normal__background {
+	background-color: var(--normal-bg-color);
+}
+.page--normal__content {
+	color: var(--normal-font-color);
+}
+
+/** 実際には使わないので、navigatorを非表示にしておく。 */
+ons-navigator {
+	display: none;
+}
+
+/* ------------------- 入力画面 ------------------------ */
+
+/* 入力フォーム */
+div.input-group {
+	width: 100%;
+}
+
+div.input-group ons-input {
+	margin-top: 1.5em;
+	margin-bottom: 1em;
+	width: 100%;
+}
+
+div.input-group label {
+	font-weight: bold;
+	margin-bottom: 1.5em;
+}
+
+
+div.input-group span.invalid {
+	color: var(--invalid-font-color);
+	font-size: small;
+}
+
+/* ボタン無効 */
+.icon_passive {
+	color: #AAAAAA;
+}
+
+/* ------------------- ツールバー(iPhone用) ------------------------ */
+
+.toolbar {
+	background-color: #2096ba;
+}
+
+.toolbar  * {
+	color: #FFFFFF;
+}
+
+.toolbar .back-button__icon {
+	fill: #FFFFFF;
+}
+
+/* ------------------- スライドメニュー ------------------------ */
+
+ons-splitter-side .page__background {
+	background-color: #eee;
+}
+
+ons-list-item {
+	background-color: #ccd8e2;
+}
+
+ons-list-item * {
+	color: #2b2b2f;
+}
+
+ons-list-item ons-icon {
+	margin-right: 8px;
+}
+
+.list-item__center {
+	background-image: -webkit-linear-gradient(bottom, #2b2b2f, #2b2b2f 100%) !important;	
+    background-image: linear-gradient(0deg, #2b2b2f, #2b2b2f 100%) !important;
+}
+
+/* ------------------- メニュー ------------------------ */
+
+/* メニュー部分 */
+div.menu {
+	margin-bottom: 1em;
+	text-align: right;
+	vertical-align: bottom;
+}
+
+div.menu ons-icon {
+	color: var(--action-icon-color);
+	font-size: 120%;
+}
+
+
+
+/* ------------------- カード ------------------------ */
+
+.card--material {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+ons-card dt {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+ons-card dt, ons-card dd {
+	word-wrap: break-word;
+}
+
+div.card-menu {
+	text-align: right;
+}
+
+ons-card dt {
+	font-weight: bold;
+}
+
+ons-card dd {
+	margin-top: 5px;
+	margin-left: 0em;
+	-webkit-margin-start: 0em;
+}
+
+ons-card .button, .icon-button{
+	font-size: 150% !important;
+	background-color: transparent !important;
+	color: var(--normal-button-color) !important;
+	margin: 0px !important;
+}
+
+ons-card .button .delete, ons-list-header .delete {
+	color: var(--delete-button-color);
+}
+
+ons-button.button--material--flat, .button--material--flat {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+/* ------------------- ちょっと注目 ------------------------ */
+
+.attention {
+	margin-bottom: 20px;
+	background-color: #ccd8e2;
+	border-radius: 10px;
+	padding: 10px;	
+}
+
+.attention dt {
+	font-weight: bold;
+	margin-top: 20px;
+}
+
+.attention dd.in-list {
+	margin-left: 0px;
+}
+
+.attention .button--large {
+	margin: 15px 0px;
+}
+
+/* ------------------- リスト ------------------------ */
+
+ul { list-style-type: square; /* 1階層目 */ }
+ul ul { list-style-type: disc; /* 2階層目 */ }
+ul ul ul { list-style-type: circle; /* 3階層目以降 */ }
+
+/* ------------------- ローディング ------------------------ */
+
+div.loader-parent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 200px;
+    width: 200px;
+}
+.loader {
+  margin: 80px auto;
+  font-size: 25px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load5 1.1s infinite ease;
+  animation: load5 1.1s infinite ease;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+@-webkit-keyframes load5 {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #7f7f7f, 1.8em -1.8em 0 0em rgba(127,127,127, 0.2), 2.5em 0em 0 0em rgba(127,127,127, 0.2), 1.75em 1.75em 0 0em rgba(127,127,127, 0.2), 0em 2.5em 0 0em rgba(127,127,127, 0.2), -1.8em 1.8em 0 0em rgba(127,127,127, 0.2), -2.6em 0em 0 0em rgba(127,127,127, 0.5), -1.8em -1.8em 0 0em rgba(127,127,127, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(127,127,127, 0.7), 1.8em -1.8em 0 0em #7f7f7f, 2.5em 0em 0 0em rgba(127,127,127, 0.2), 1.75em 1.75em 0 0em rgba(127,127,127, 0.2), 0em 2.5em 0 0em rgba(127,127,127, 0.2), -1.8em 1.8em 0 0em rgba(127,127,127, 0.2), -2.6em 0em 0 0em rgba(127,127,127, 0.2), -1.8em -1.8em 0 0em rgba(127,127,127, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(127,127,127, 0.5), 1.8em -1.8em 0 0em rgba(127,127,127, 0.7), 2.5em 0em 0 0em #7f7f7f, 1.75em 1.75em 0 0em rgba(127,127,127, 0.2), 0em 2.5em 0 0em rgba(127,127,127, 0.2), -1.8em 1.8em 0 0em rgba(127,127,127, 0.2), -2.6em 0em 0 0em rgba(127,127,127, 0.2), -1.8em -1.8em 0 0em rgba(127,127,127, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(127,127,127, 0.2), 1.8em -1.8em 0 0em rgba(127,127,127, 0.5), 2.5em 0em 0 0em rgba(127,127,127, 0.7), 1.75em 1.75em 0 0em #7f7f7f, 0em 2.5em 0 0em rgba(127,127,127, 0.2), -1.8em 1.8em 0 0em rgba(127,127,127, 0.2), -2.6em 0em 0 0em rgba(127,127,127, 0.2), -1.8em -1.8em 0 0em rgba(127,127,127, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(127,127,127, 0.2), 1.8em -1.8em 0 0em rgba(127,127,127, 0.2), 2.5em 0em 0 0em rgba(127,127,127, 0.5), 1.75em 1.75em 0 0em rgba(127,127,127, 0.7), 0em 2.5em 0 0em #7f7f7f, -1.8em 1.8em 0 0em rgba(127,127,127, 0.2), -2.6em 0em 0 0em rgba(127,127,127, 0.2), -1.8em -1.8em 0 0em rgba(127,127,127, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(127,127,127, 0.2), 1.8em -1.8em 0 0em rgba(127,127,127, 0.2), 2.5em 0em 0 0em rgba(127,127,127, 0.2), 1.75em 1.75em 0 0em rgba(127,127,127, 0.5), 0em 2.5em 0 0em rgba(127,127,127, 0.7), -1.8em 1.8em 0 0em #7f7f7f, -2.6em 0em 0 0em rgba(127,127,127, 0.2), -1.8em -1.8em 0 0em rgba(127,127,127, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(127,127,127, 0.2), 1.8em -1.8em 0 0em rgba(127,127,127, 0.2), 2.5em 0em 0 0em rgba(127,127,127, 0.2), 1.75em 1.75em 0 0em rgba(127,127,127, 0.2), 0em 2.5em 0 0em rgba(127,127,127, 0.5), -1.8em 1.8em 0 0em rgba(127,127,127, 0.7), -2.6em 0em 0 0em #7f7f7f, -1.8em -1.8em 0 0em rgba(127,127,127, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(127,127,127, 0.2), 1.8em -1.8em 0 0em rgba(127,127,127, 0.2), 2.5em 0em 0 0em rgba(127,127,127, 0.2), 1.75em 1.75em 0 0em rgba(127,127,127, 0.2), 0em 2.5em 0 0em rgba(127,127,127, 0.2), -1.8em 1.8em 0 0em rgba(127,127,127, 0.5), -2.6em 0em 0 0em rgba(127,127,127, 0.7), -1.8em -1.8em 0 0em #7f7f7f;
+  }
+}
+@keyframes load5 {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #7f7f7f, 1.8em -1.8em 0 0em rgba(127,127,127, 0.2), 2.5em 0em 0 0em rgba(127,127,127, 0.2), 1.75em 1.75em 0 0em rgba(127,127,127, 0.2), 0em 2.5em 0 0em rgba(127,127,127, 0.2), -1.8em 1.8em 0 0em rgba(127,127,127, 0.2), -2.6em 0em 0 0em rgba(127,127,127, 0.5), -1.8em -1.8em 0 0em rgba(127,127,127, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(127,127,127, 0.7), 1.8em -1.8em 0 0em #7f7f7f, 2.5em 0em 0 0em rgba(127,127,127, 0.2), 1.75em 1.75em 0 0em rgba(127,127,127, 0.2), 0em 2.5em 0 0em rgba(127,127,127, 0.2), -1.8em 1.8em 0 0em rgba(127,127,127, 0.2), -2.6em 0em 0 0em rgba(127,127,127, 0.2), -1.8em -1.8em 0 0em rgba(127,127,127, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(127,127,127, 0.5), 1.8em -1.8em 0 0em rgba(127,127,127, 0.7), 2.5em 0em 0 0em #7f7f7f, 1.75em 1.75em 0 0em rgba(127,127,127, 0.2), 0em 2.5em 0 0em rgba(127,127,127, 0.2), -1.8em 1.8em 0 0em rgba(127,127,127, 0.2), -2.6em 0em 0 0em rgba(127,127,127, 0.2), -1.8em -1.8em 0 0em rgba(127,127,127, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(127,127,127, 0.2), 1.8em -1.8em 0 0em rgba(127,127,127, 0.5), 2.5em 0em 0 0em rgba(127,127,127, 0.7), 1.75em 1.75em 0 0em #7f7f7f, 0em 2.5em 0 0em rgba(127,127,127, 0.2), -1.8em 1.8em 0 0em rgba(127,127,127, 0.2), -2.6em 0em 0 0em rgba(127,127,127, 0.2), -1.8em -1.8em 0 0em rgba(127,127,127, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(127,127,127, 0.2), 1.8em -1.8em 0 0em rgba(127,127,127, 0.2), 2.5em 0em 0 0em rgba(127,127,127, 0.5), 1.75em 1.75em 0 0em rgba(127,127,127, 0.7), 0em 2.5em 0 0em #7f7f7f, -1.8em 1.8em 0 0em rgba(127,127,127, 0.2), -2.6em 0em 0 0em rgba(127,127,127, 0.2), -1.8em -1.8em 0 0em rgba(127,127,127, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(127,127,127, 0.2), 1.8em -1.8em 0 0em rgba(127,127,127, 0.2), 2.5em 0em 0 0em rgba(127,127,127, 0.2), 1.75em 1.75em 0 0em rgba(127,127,127, 0.5), 0em 2.5em 0 0em rgba(127,127,127, 0.7), -1.8em 1.8em 0 0em #7f7f7f, -2.6em 0em 0 0em rgba(127,127,127, 0.2), -1.8em -1.8em 0 0em rgba(127,127,127, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(127,127,127, 0.2), 1.8em -1.8em 0 0em rgba(127,127,127, 0.2), 2.5em 0em 0 0em rgba(127,127,127, 0.2), 1.75em 1.75em 0 0em rgba(127,127,127, 0.2), 0em 2.5em 0 0em rgba(127,127,127, 0.5), -1.8em 1.8em 0 0em rgba(127,127,127, 0.7), -2.6em 0em 0 0em #7f7f7f, -1.8em -1.8em 0 0em rgba(127,127,127, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(127,127,127, 0.2), 1.8em -1.8em 0 0em rgba(127,127,127, 0.2), 2.5em 0em 0 0em rgba(127,127,127, 0.2), 1.75em 1.75em 0 0em rgba(127,127,127, 0.2), 0em 2.5em 0 0em rgba(127,127,127, 0.2), -1.8em 1.8em 0 0em rgba(127,127,127, 0.5), -2.6em 0em 0 0em rgba(127,127,127, 0.7), -1.8em -1.8em 0 0em #7f7f7f;
+  }
+}

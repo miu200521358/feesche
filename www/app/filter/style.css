@@ -1,0 +1,26 @@
+dt.filter-group {
+	color: #FFFFFF;
+	padding: 2px 5px;
+}
+
+ons-input.active-color input {
+	color: #FFFFFF !important;
+}
+
+.as-sortable-item {
+    border: none;
+}
+
+/* ハンドル以外部分でのスクロールを許可する */
+/* ng-sortable: Fix mobile touch scrolling */
+.as-sortable-item {
+    -ms-touch-action: auto;
+    touch-action: auto;
+    -webkit-touch-callout: inherit;
+}
+.as-sortable-item-handle {
+    -ms-touch-action: none;
+    touch-action: none;
+    /* to disable context menu on iOS devices */
+    -webkit-touch-callout: none;
+}

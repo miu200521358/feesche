@@ -1,0 +1,44 @@
+<ons-page id="onsPage" modifier="normal" ng-swipe-left="next();" ng-swipe-right="prev();">
+    <ons-pull-hook var="loader" ng-action="loadFeed($done);">
+        <span ng-switch="loader.state">
+            <span class="hook-message" ng-switch-when="initial">
+                <ons-icon icon="fa-arrow-down"></ons-icon>
+                {{ 'schedule.hook_initial' | translate }}
+            </span>
+            <span class="hook-message" ng-switch-when="preaction">
+                <ons-icon icon="fa-arrow-up"></ons-icon>
+                {{ 'schedule.hook_preaction' | translate }}
+            </span>
+            <span class="hook-message" ng-switch-when="action">
+                <ons-icon icon="fa-refresh" spin="true"></ons-icon>
+                {{ 'schedule.hook_action' | translate }}
+            </span>
+        </span>
+    </ons-pull-hook>            
+
+    <ons-speed-dial id="type" position="{{ 'app.ons_fab_var_pos' | translate }} right" direction="down" ripple var="scheduleDial">
+        <ons-fab>
+            <ons-icon icon="fa-calendar" ng-show="viewName == 'month'"></ons-icon>
+            <ons-icon icon="fa-list" ng-show="viewName == 'listMonth'"></ons-icon>
+            <ons-icon icon="fa-exclamation" ng-show="viewName == 'listNews'"></ons-icon>
+            <ons-icon icon="fa-bell" ng-show="viewName == 'listAlarm'"></ons-icon>
+        </ons-fab>
+        <ons-speed-dial-item ripple>
+        	<ons-icon icon="fa-calendar" ng-click="changeView('month');"></ons-icon>
+        </ons-speed-dial-item>
+        <ons-speed-dial-item ripple>
+        	<ons-icon icon="fa-list" ng-click="changeView('listMonth');"></ons-icon>
+        </ons-speed-dial-item>
+        <ons-speed-dial-item ripple>
+            <ons-icon icon="fa-exclamation" ng-click="changeView('listNews');"></ons-icon>
+        </ons-speed-dial-item>
+        <ons-speed-dial-item ripple>
+            <ons-icon icon="fa-bell" ng-click="changeView('listAlarm');"></ons-icon>
+        </ons-speed-dial-item>
+    </ons-speed-dial>
+	
+	<my-contents>
+		<div id="myCalendar" ui-calendar="uiConfig.calendar" class="calendar {{direction}}" calendar="myCalendar"></div>
+	</my-contents>
+	
+</ons-page>

@@ -1,0 +1,54 @@
+<ons-page id="onsPage" modifier="normal" ng-swipe-left="next();" ng-swipe-right="prev();">
+	
+	<my-contents>	
+		<h1>
+			<ons-button id="prev" class="button button--material--flat">
+				<ons-icon icon="fa-angle-left" ng-click="prev();" size="2x" style="color: var(--normal-font-color)"></ons-icon>
+			</ons-button>
+			<span id="displayDate">
+			{{ displayDate | date }}
+			</span>
+			<ons-button id="next" class="button button--material--flat">
+				<ons-icon icon="fa-angle-right" ng-click="next();" size="2x" style="color: var(--normal-font-color)"></ons-icon>
+			</ons-button>
+		</h1>
+		
+		<div class="attention" ng-show="results.length == 0">
+			{{ 'schedule.no_feed_event' | translate }}
+		</div>
+		
+		<ons-card ng-repeat="r in results">
+			<dl>
+				<dt class="entry_title" style="background-color: {{r.color}}; border: 2px solid {{r.borderColor}}; color: #FFFFFF; padding: 3px 8px;">{{r.col_entry_title}}</dt>
+				<dd class="entry_content">{{r.col_entry_content}}</dd>
+			</dl>
+			<div class="card-menu">
+    			<ons-button class="button button--material--flat entry_edit" ng-click="modify(r);" ng-disabled="r.col_id == 1">
+					<!-- 日付の調整 -->
+					<ons-icon icon="fa-pencil" ng-class="{icon_passive: r.col_id == 1}"></ons-icon>
+				</ons-button>
+				
+				<ons-button class="button button--material--flat entry_link" ng-click="jump(r);" ng-disabled="r.col_id == 1">
+					<!-- 該当記事へのジャンプ -->
+					<ons-icon icon="fa-external-link" ng-class="{icon_passive: r.col_id == 1}"></ons-icon>
+				</ons-button>
+				
+				<!-- シェア -->
+				<ons-button class="button button--material--flat entry_share" ng-click="share(r);" ng-disabled="r.col_id == 1">
+					<ons-icon icon="fa-share" ng-class="{icon_passive: r.col_id == 1}"></ons-icon>
+				</ons-button>
+				
+				<ons-button class="button button--material--flat entry_alarm" ng-click="setAlarm(r);" ng-disabled="r.col_id == 1 || (!canAlarm && r.col_alarm_flg != 1)">
+					<!-- 現在:アラームON -->
+					<ons-icon icon="fa-bell-o" ng-if="r.col_alarm_flg == 1" ng-class="{alert_active: r.col_alarm_flg == 1, icon_passive: (r.col_id == 1 || (!canAlarm && r.col_alarm_flg != 1))}"></ons-icon>
+					<!-- 現在:アラームOFF -->
+					<ons-icon icon="fa-bell-slash-o" ng-if="r.col_alarm_flg != 1" ng-class="{alert_active: r.col_alarm_flg == 1, icon_passive: (r.col_id == 1 || (!canAlarm && r.col_alarm_flg != 1))}"></ons-icon>
+				</ons-button>
+				<ons-button class="button button--material--flat entry_delete" ng-click="delete(r);" ng-disabled="r.col_id == 1">
+					<ons-icon icon="fa-trash-o"  ng-class="{delete: r.col_id > 1, icon_passive: r.col_id == 1 }"></ons-icon>
+				</ons-button>
+			</div>
+		</ons-card>
+	</my-contents>
+	
+</ons-page>

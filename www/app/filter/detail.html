@@ -1,0 +1,48 @@
+<ons-page modifier="normal">
+	
+	<my-contents>
+	
+		<form name="myForm">	
+	
+			<!-- フォームの入力値がすべて問題ない場合のみ、押下可能 -->
+			<ons-fab id="save" position="{{ 'app.ons_fab_var_pos' | translate }} right" ng-disabled="myForm.$invalid">
+				<ons-icon icon="fa-floppy-o" ng-click="save();"></ons-icon>
+			</ons-fab>
+			
+			<fieldset>
+				<legend>{{ "setting.filter.legend.name" | translate }}</legend>
+				<div class="input-group">
+					<label>{{ 'setting.filter.group.name' | translate }}</label>
+					<ons-input id="filter_name" name="inputGroup" ng-model="group.col_name" type="text" placeholder="{{ 'setting.filter.group.placeholder' | translate }}" modifier="material" float required></ons-input>
+					<div class="validate" ng-messages="myForm.inputGroup.$error" ng-show="myForm.inputGroup.$touched" multiple>
+						<span class="invalid" ng-message="required">{{ 'setting.filter.group.required' | translate }}</span>
+					</div>
+				</div>
+				
+				<div class="input-group">
+					<label>{{ 'setting.filter.color.name' | translate }}</label>
+					<ons-input id="filter_color" colorpicker name="inputColor" ng-model="group.col_color" type="text" placeholder="{{ 'setting.filter.color.placeholder' | translate }}" ng-class="{'active-color': myForm.inputColor.$valid}" style="background-color: {{group.col_color}};" modifier="material" pattern="#[0-9A-Za-z]{6}" float required></ons-input>
+					<div class="validate" ng-messages="myForm.inputColor.$error" ng-show="myForm.inputColor.$touched" multiple>
+						<span class="invalid" ng-message="required">{{ 'setting.filter.color.required' | translate }}</span>
+						<span class="invalid" ng-message="pattern">{{ 'setting.filter.color.pattern' | translate }}</span>
+					</div>
+				</div>
+				
+				<fieldset>
+					<div class="menu">
+						<ons-icon id="add" icon="fa-plus-circle" ng-click="addText();" class="icon-button"></ons-icon>
+					</div>
+					<legend>{{ "setting.filter.text.name" | translate }}</legend>
+					<div class="input-group" ng-repeat="t in input_text_list">
+						<ons-input class="filter_text" name="inputGroup" ng-model="t.col_text" type="text" placeholder="{{ 'setting.filter.text.placeholder' | translate }}" modifier="material" float pattern="{{ getFilterTextPattern() }}"></ons-input>
+						<div class="validate" ng-messages="myForm.inputGroup.$error" ng-show="myForm.inputGroup.$touched" multiple>
+							<span class="invalid" ng-message="pattern">{{ 'setting.filter.text.pattern' | translate }}</span>
+						</div>
+					</div>
+				</fieldset>
+				
+			</fieldset>
+		</form>
+	</my-contents>	
+	
+</ons-page>

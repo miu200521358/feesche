@@ -1,0 +1,47 @@
+<ons-page modifier="normal">
+	
+	<my-contents>
+
+		<div class="attention">
+			<h1 style="font-size: 120%;">FeeSche</h1>
+			<div>
+			<dl>
+				<dt>{{ 'about.author' | translate }}</dt>
+				<dd>Miz</dd>
+				<dt>{{ 'about.icon' | translate }}</dt>
+				<dd class="in-list">
+                    <ul>
+                        <li>App-icon are based on <br>ICOOON MONO.</li>
+                        <li>In-app icon are based on <br>Font Awesome.</li>
+                    </ul>                
+                </dd>
+            </dl>
+			</div>
+			<div style="text-align: right">
+				<ons-button id="share" class="button button--material--flat icon-button" ng-click="share();" ng-disabled="r.col_id == 1">
+					<ons-icon icon="fa-share" ng-class="{icon_passive: r.col_id == 1}"></ons-icon>
+				</ons-button>
+				<ons-button id="rate" class="button button--material--flat icon-button" ng-click="jumpRate();">
+					<ons-icon icon="fa-star"></ons-icon>
+				</ons-button>
+				<ons-button id="contact" class="button button--material--flat icon-button" ng-click="jumpForm();">
+					<ons-icon icon="fa-envelope"></ons-icon>
+				</ons-button>
+			</div>
+		</div>
+		
+		<ons-list modifier="inset">
+			<ons-list-header>
+				<span>
+					{{ 'about.history.header' | translate }}
+				</span>
+			</ons-list-header>
+			<ons-list-item ng-repeat="h in histories">
+				<dt>{{ h.version }}</dt>
+				<dd>{{ h.message }}</dd>
+			</ons-list-item>
+		</ons-list>
+	
+	</my-contents>
+	
+</ons-page>

@@ -1,0 +1,29 @@
+<ons-page modifier="normal">
+
+	<ons-fab id="add" position="{{ 'app.ons_fab_var_pos' | translate }} right"  ng-disabled="!canAdd">
+		<ons-icon icon="fa-plus" ui-sref="feed_detail({status: 'add'})"></ons-icon>
+	</ons-fab>
+	
+	<my-contents>	
+		<ons-card ng-repeat="r in results">
+			<dl>
+				<dt class="feed_name">{{r.col_name}}</dt>
+    			<dd class="feed_url">{{r.col_url}}</dd>
+    			<dd class="feed_retention_days">
+                    {{ "setting.feed.retention_days.prefix" | translate }}
+                    {{r.col_retention_days}}
+                    {{ "setting.feed.retention_days.suffix" | translate }}
+                </dd>
+			</dl>
+			<div class="card-menu">
+				<ons-button class="button button--material--flat modify">
+					<ons-icon icon="fa-pencil" ng-click="showDetailByList(r);"></ons-icon>
+				</ons-button>
+				<ons-button class="button button--material--flat delete">
+					<ons-icon class="delete" icon="fa-trash" ng-click="delete(r);"></ons-icon>
+				</ons-button>
+			</div>
+		</ons-card>
+	</my-contents>
+	
+</ons-page>

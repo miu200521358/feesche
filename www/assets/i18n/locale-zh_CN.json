@@ -1,0 +1,316 @@
+{
+	"app": {
+		"title": "FeeSche",
+		"ons_fab_var_pos": "最佳"
+	},
+	"menu": {
+		"schedule": "时间表",
+		"feed": "饲料",
+		"filter": "过滤",
+		"crawl": "Clawl",
+		"alarm": "Alarm",
+		"about": "关于",
+        "config": "配置",
+		"subscription": "订阅"
+	},
+	"setting": {
+		"feed": {
+			"legend": {
+				"name": "饲料"
+			},
+			"name": {
+				"name": "名称 *",
+				"placeholder": "任何名字",
+				"required": "饲料的名称是必需的。"
+			},
+			"url": {
+				"name": "网址 *",
+				"placeholder": "例如) http://example.com/",
+				"required": "饲料的网址是必填项。",
+				"pattern": "饲料网址的格式不正确。",
+				"invalid": {
+					"title": "网址访问错误",
+					"text1": "无法访问网址。",
+					"text2": "请输入可访问的饲料网址。"
+				}
+			},
+        	"retention_days": {
+				"name": "保留日期 *",
+				"placeholder": "保留饲料的天数",
+				"prefix": "删除后",
+				"suffix": "天",
+				"required": "保留日期是必需的。",
+				"pattern": "请只输入1到99999之间的整数"
+			},
+			"delete_note": "删除饲料也会删除饲料事件。"
+		},
+		"filter": {
+			"legend": {
+				"name": "过滤"
+			},
+			"group": {
+				"name": "组 *",
+				"placeholder": "筛选组名称",
+				"required": "组是必需的。"
+			},
+			"color": {
+				"name": "颜色 *",
+				"placeholder": "过滤器组的颜色",
+				"required": "颜色是必需的。",
+				"pattern": "颜色不正确。"
+			},
+			"text": {
+				"name": "文本 *",
+				"placeholder": "筛选要应用于饲料的字符串",
+				"pattern": "添加时，字符串是必需的项目。"
+			}
+		},
+		"crawl": {
+			"legend": {
+				"name": "Feed Crawl"
+			},
+			"interval": {
+				"name": "Interval Hour *",
+				"placeholder": "Time interval to retrieve a feed",
+				"prefix": "Every",
+				"suffix": "hours",
+				"required": "Interval is a required.",
+				"pattern": "Please enter an integer between 1 and 99 hours for Interval",
+				"notes": "Notes) Depending on the state of the device, the acquisition interval may be shifted."
+			},
+			"history": {
+				"next": " (Next)",
+				"header": "Feed crawl start time"
+			}
+		},
+		"alarm": {
+			"legend": {
+				"name": "Feed Alarm"
+			},
+			"alarm_hour": {
+				"name": "Alarm activation time *",
+				"placeholder": "Time to start the feed alarm",
+				"suffix": "o'clock",
+				"required": "Alarm activation time is a required item.",
+				"pattern": "Alarm activation time must be between 0 and 23 o'clock",
+				"notes": "Notes) Depending on the state of the device, the start time may be shifted."
+			},
+			"history": {
+				"next": " (Next)",
+				"header": "Feed alarm time"
+			}
+		},
+		"config": {
+			"legend": {
+				"name": "配置"
+			},
+			"firstday_of_week": {
+				"name": "从时间表的星期几开始 *",
+				"placeholder": "从时间表的星期几开始",
+				"required": "计划的一周的开始日期是必填字段。"
+			},
+			"day_of_week": {
+				"sunday": "星期日",
+				"monday": "星期一",
+				"tuesday": "星期二",
+				"wednesday": "星期三",
+				"thursday": "星期四",
+				"friday": "星期五",
+				"saturday": "星期六"
+			},
+			"event_limit": {
+				"name": "饲料事件显示上限编号 *",
+				"placeholder": "最大案件数量",
+				"required": "进料事件显示上限数量是必需的。",
+				"pattern": "请输入一个从0到99的整数，以表示最大数量的进纸事件指示。",
+				"notes": "设置为0时，显示所有项目。 1后，只显示指定的编号。"
+			}
+		}		
+	},
+	"message": {
+		"welcome": {
+			"title": "欢迎来到FeeSche！",
+			"message1": "谢谢你的下载。",
+    		"message2": "点击 \"？\" 在每个屏幕上显示帮助。",
+    		"message3": "拉下这个屏幕来获取饲料。",
+			"message4": "请享受美好的饲料生活！"            
+		},
+		"save": {
+			"success": "保存",
+			"failure": "无法保存"
+		},
+        "date_update": {
+			"success": "更新日期",
+			"failure": "无法更新日期"
+		},
+		"delete": {
+			"confirm": {
+				"title": "删除确认",
+				"message": "删除你确定要吗？"
+			},
+			"success": "删除",
+			"failure": "无法删除"
+		},
+        "shown": {
+			"confirm": {
+				"title": "确认阅读",
+				"message": "您确定要将所有显示的活动标记为已读吗？"
+			},
+			"success": "设置为阅读",
+			"failure": "无法设置读取"
+		},
+		"crawrl": {
+			"confirm": {
+				"title": "Confirm crawl timer start",
+				"message": "Are you sure to start feed crawl timer?"
+			},
+        	"start": {
+        	    "success": "Crawl timer started",
+        	    "failure": "Failed to start crawl timer"
+			},
+			"stop": {
+                "success": "Crawl timer stoped",
+        	    "failure": "Failed to stop crawl timer"
+			},
+			"failure": "Crawl timer setting failed"
+		},
+		"order": {
+			"success": "更改了订单",
+			"failure": "无法更改订单"
+		},
+		"alarm": {
+			"active": "打开闹钟",
+			"passive": "关闭闹钟",
+			"success": "报警发生"
+		},
+		"finish": {
+			"confirm": {
+				"title": "确认退出",
+				"message": "你确定要退出应用程序吗？"
+			}
+		}
+	},
+    "schedule": {
+        "no_feed_event": "没有饲料事件",
+        "filter_all": "显示所有",
+        "filter_none": "显示没有过滤器",
+        "hook_initial": "拉下来刷新",
+        "hook_preaction": "释放以刷新",
+        "hook_action": "加载数据中。 请稍候..."
+    },
+	"about" : {
+		"author": "作者",
+		"icon": "关于图标",
+		"history": {
+			"header": "更改日志",
+			"ver01_00_00": {
+				"version": "ver1.0.0",
+				"message": "新版本"
+			}
+		}		
+	},
+	"subscription": {
+		"status": "状态",
+		"status_free": "免费",
+		"status_monthly": "每月结算",
+		"status_yearly": "年结算",
+		"benefits": "购买优惠",
+		"benefits1": "广告将被隐藏",
+		"benefits2": "您可以无限注册馈送",
+		"benefits3": "您可以注册无限数量的过滤器",
+		"benefits4": "您可以按照您喜欢的任何时间间隔设置定时器",
+		"benefits5": "您可以随时随意设置饲料事件的闹钟",
+		"subscription": "订阅",
+		"subscription_monthly": "每月结算",
+		"subscription_yearly": "年结算",
+		"subscription_per_month": "每月",
+		"subscription_per_year": "每年",
+		"subscription_cancel": "取消订阅",
+		"subscription_cancel_monthly": "取消每月结算",
+		"subscription_cancel_yearly": "取消年度结算"
+	},
+	"intro": {
+		"schedule_list": {
+    		"overview": "在此屏幕上，您可以看到以日历格式从饲料中读取的事件。",
+    		"overview_list": "在此屏幕上，您可以看到以列表格式从饲料中读取的事件。",
+            "overview_list_new": "在此屏幕上，您可以从源中读取的事件中查看列表中新添加的事件。",
+        	"overview_list_alarm": "在此屏幕上，您可以看到从饲料中读取的事件，并以列表形式设置警报。",
+            "pull_to_hook": "向下拉屏幕以获得供稿。 您也可以使用工具栏上的更新按钮来获取它。",
+			"title": "这是当前显示的日历的月份。 移到前面和后面后，点击此处返回当前月份。",
+			"next": "显示下个月。 您也可以通过向右滑动屏幕来切换。",
+			"prev": "显示上个月。 您也可以通过向左滑动屏幕来切换。",
+			"type": "您可以按月日历，月度列表，新增列表和警报列表来切换时间表的显示格式。",
+			"event": "这是从饲料中读取的事件。 您可以使用过滤器更改背景颜色。 新事件附加到新边界。",
+			"list_event": "这是从饲料中读取的事件。 您可以使用过滤器更改圆形颜色。",
+        	"list_event_new": "从饲料中读取的事件中，它是新增加的新功能。 您可以使用过滤器更改圆形颜色。",
+    		"list_event_alarm": "从饲料中读取的事件中，设置了闹钟的那些事件。 您可以使用过滤器更改圆形颜色。",
+        	"filter": "您可以通过筛选条件缩小从饲料中读取的事件的范围。",
+			"shown": "您可以使显示的事件已阅读。"
+		},
+		"schedule_detail": {
+			"overview": "在此屏幕上，您可以每天查看从饲料中读取的事件的详细信息。",
+			"title": "这是目前显示的日期。",
+			"next": "显示第二天。 您也可以通过向右滑动屏幕来切换。",
+			"prev": "显示前一天。 您也可以通过向左滑动屏幕来切换。",
+			"entry_title": "这是从饲料中读取的事件。 您可以使用过滤器更改背景颜色。",
+			"entry_content": "从饲料中读取事件的详细信息。",
+			"entry_link": "浏览器打开后，您可以在网页上显示该事件的文章。",
+			"entry_share": "活动可以共享。",
+			"entry_alarm": "您可以在事件中设置闹钟。 如果设置了闹钟，当一天的指定时间到达时您会收到通知。 最多可以免费注册5个项目。",
+			"entry_delete": "您可以删除一个事件。"
+		},
+		"about": {
+			"overview": "此屏幕显示有关此应用程序的信息。",
+			"share": "你可以分享这个应用程序。",
+			"rate": "你可以评估这个应用程序。 如果你喜欢，感谢你的高度评价！",
+			"contact": "如果您有任何查询，请求等，请点击这里。"
+		},
+		"alarm": {
+			"overview": "在此屏幕中，您可以设置为在同一天通知供稿事件。",
+			"alarm_hour": "您可以输入要通知的时间（0至23点）。",
+			"save": "您可以保存警报信息并设置通知时间表。 如果输入不完整，则无法按下。",
+			"history": "这是执行警报通知时的历史记录。",
+			"delete": "删除闹钟历史。"
+		},
+		"feed_list": {
+			"overview": "在此屏幕中，您可以看到要获取的供稿列表。",
+			"feed_name": "这是饲料的标题。",
+			"feed_url": "饲料的网址。",
+			"feed_retention_days": "饲料保留的天数。 它会在这段时间后自动删除。",
+			"modify": "编辑供稿。",
+			"delete": "删除饲料。",
+			"add": "您将添加一个饲料。 最多可以免费注册10个项目。"
+		},
+		"feed_detail": {
+			"overview": "在此屏幕中，您可以设置要获取的饲料。",
+			"feed_name": "这是饲料的标题。 可以设置任意字符串。",
+			"feed_url": "饲料的网址。 请输入以RSS 1.0，RSS 2.0，Atom格式之一分发的URL。",
+			"feed_retention_days": "饲料保留的天数。 可以设置1到99999之间的整数。",
+			"save": "保存供稿信息。 添加时，我们会自动获取饲料。 如果输入不完整，则无法按下。"
+		},
+		"filter_list": {
+			"overview": "在此屏幕中，您可以看到要应用于饲料事件的过滤器列表。",
+			"filter_name": "过滤标题和背景颜色。",
+			"filter_text": "它是一个实际过滤的字符串。 字母不区分大小写。",
+			"sort": "您可以对过滤器进行排序。 过滤器越高，优先级越高。",
+			"modify": "编辑过滤器。",
+			"delete": "删除过滤器。",
+			"add": "添加一个过滤器。 最多可以免费注册5个项目。"
+		},
+		"filter_detail": {
+			"overview": "您可以在此屏幕上设置过滤器。",
+			"filter_name": "这是过滤器的标题。 可以设置任意字符串。",
+			"filter_color": "过滤器的背景颜色。 任何颜色都可以设置。",
+			"filter_text": "过滤字符串。 可以设置任意字符串。 编辑时，请留空以删除它。",
+			"add": "添加过滤器字符串行。",
+			"save": "保存过滤器信息。 如果输入不完整，则无法按下。"
+		},
+		"crawl": {
+			"overview": "In this screen, you can set the time interval for crawling feeds.",
+			"interval": "Time interval to crawl feeds. Any integer from 1 to 99 can be set. The free version is fixed for 12 hours.",
+			"save": "Save the crawl timer information and crawl the feed. It can not be pressed if input is incomplete.",
+			"history": "This is the history of the time when the feed was crawled.",
+			"delete": "Deletes the crawl timer history."
+		}
+	}
+}

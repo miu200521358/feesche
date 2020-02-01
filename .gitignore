@@ -1,0 +1,9 @@
+#
+package.json
+
+plugins/
+res/
+www/components
+www/js/analytics.js
+www/js/admob.js
+typings/cordova-typings.d.ts

@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/subscription.js"></script>
+  <script src="js/SocialSharing.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/dbTable.js"></script>
+  <script src="js/feed.js"></script>
+  <script src="js/admob.js"></script>
+  <script src="js/analytics.js"></script>
+
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="css/onsen-css-components.custom.css">  
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- スケジュール -->
+  <script src="app/schedule/js/googleClientLocation.js"></script>
+  <script src="app/schedule/js/ical_events.js"></script>
+  <script src="app/schedule/js/ical_fullcalendar.js"></script>  
+  <script src="app/schedule/js/ical_load.js"></script>  
+  <script src="app/schedule/js/holiday.js"></script>
+  <script src="app/schedule/js/script.js"></script>
+  <link rel="stylesheet" href="app/schedule/style.css">
+  <!-- 設定：フィード -->
+  <script src="app/feed/script.js"></script>
+  <link rel="stylesheet" href="app/feed/style.css">
+  <!-- 設定：フィルター -->
+  <script src="app/filter/script.js"></script>
+  <link rel="stylesheet" href="app/filter/style.css">
+  <!-- 設定：クロール -->
+  <script src="app/crawl/script.js"></script>
+  <!-- 設定：アラーム -->
+  <script src="app/alarm/script.js"></script>
+  <!-- 設定：設定 -->
+  <script src="app/config/script.js"></script>
+  <!-- About -->
+  <script src="app/about/script.js"></script>
+  <!-- 定期購入 -->
+  <script src="app/subscription/script.js"></script>
+
+  
+  <title>FeeSche</title>
+</head>
+<body ng-app="MyApp">
+	
+	<!-- 全体のページ設定 -->
+	<ons-page>
+		<!-- splitter に変数宣言をしておく(開閉用) -->
+		<ons-splitter var="splitter">
+			<!-- splitterメニュー設定 -->
+			<ons-splitter-side page="menu.html" side="left" width="200px" collapse>
+			</ons-splitter-side>
+			<!-- splitterコンテンツ設定 -->
+			<ons-splitter-content page="main.html">
+			</ons-splitter-content>
+		</ons-splitter>
+	</ons-page>
+	
+	<!-- splitterメニューHTML-->
+	<ons-template id="menu.html">
+		<ons-page>
+			<ons-list>
+				<!-- リスト項目に遷移先を指定する。タップしたら閉じる -->
+				<ons-list-item ui-sref="schedule_list" ng-click="splitter.left.close();" tappable>
+					<ons-icon icon="fa-calendar"></ons-icon>
+					{{ "menu.schedule" | translate }}
+				</ons-list-item>
+				<ons-list-item ui-sref="feed_list" ng-click="splitter.left.close();" tappable>
+					<ons-icon icon="fa-rss"></ons-icon>
+					{{ "menu.feed" | translate }}
+				</ons-list-item>
+				<ons-list-item ui-sref="filter_list" ng-click="splitter.left.close();" tappable>
+					<ons-icon icon="fa-filter"></ons-icon>
+					{{ "menu.filter" | translate }}
+				</ons-list-item>
+                <!--
+                FIXME　非表示
+				<ons-list-item ui-sref="crawl" ng-click="splitter.left.close();" tappable>
+					<ons-icon icon="fa-clock-o"></ons-icon>
+					{{ "menu.crawl" | translate }}
+				</ons-list-item>
+                -->
+                <!--
+                FIXME　非表示
+				<ons-list-item ui-sref="alarm" ng-click="splitter.left.close();" tappable>
+					<ons-icon icon="fa-bell"></ons-icon>
+					{{ "menu.alarm" | translate }}
+				</ons-list-item>
+                -->
+    			<ons-list-item ui-sref="subscription" ng-click="splitter.left.close();" tappable>
+					<ons-icon icon="fa-shopping-cart"></ons-icon>
+					{{ "menu.subscription" | translate }}
+				</ons-list-item>
+    			<ons-list-item ui-sref="config" ng-click="splitter.left.close();" tappable>
+					<ons-icon icon="fa-cog"></ons-icon>
+					{{ "menu.config" | translate }}
+				</ons-list-item>
+				<ons-list-item ui-sref="about" ng-click="splitter.left.close();" tappable>
+					<ons-icon icon="fa-smile-o"></ons-icon>
+					{{ "menu.about" | translate }}
+				</ons-list-item>
+			</ons-list>
+		</ons-page>
+	</ons-template>
+	
+	<!-- splitterコンテンツHTML-->
+	<ons-template id="main.html">
+		<ons-page>
+			<!-- ツールバー -->
+			<ons-toolbar>
+				<!-- ツールバー左 -->
+	            <div class="left" ng-controller="BackController">
+					<!-- メニューアイコン -->
+					<ons-toolbar-button>
+						<!-- 押下時に、splitterを開閉する -->
+						<ons-icon icon="fa-bars" ng-click="splitter.left.toggle();"></ons-icon>
+					</ons-toolbar-button>
+	                <!-- 戻るボタン -->
+	                <!-- 画面スタックが1件以上ある場合のみ、アイコンを表示する -->
+	                <ons-back-button ng-show="$root.pages.length > 0" ng-click="backNavi();">
+	                    Back
+	                </ons-back-button>
+	            </div>
+				<!-- ツールバー真ん中 -->
+				<div class="center" style="text-align: center;">
+					 &nbsp;{{$root.pageTitle}}&nbsp;
+				</div>
+				<!-- ツールバー右 -->
+				<div class="right" ng-controller="ToolRightController">
+					<ons-toolbar-button>
+						<ons-icon icon="fa-refresh" ng-click="loadFeed();"></ons-icon>
+					</ons-toolbar-button>
+					<ons-toolbar-button>
+							<ons-icon icon="fa-question" ng-click="showIntro();"></ons-icon>
+					</ons-toolbar-button>
+				</div>				
+			</ons-toolbar>
+			<!-- コンテンツ部分 -->
+			<ui-view></ui-view>
+			<my-loader></my-loader>
+	        <!-- ナビゲーター（実際には表示しない） -->
+	        <ons-navigator var="navi">
+	        </ons-navigator>
+		</ons-page>
+	</ons-template>
+	
+	<!-- ローディングHTML -->
+	<ons-template id="loader.html">
+		<div ng-if="$root.isLoading" class="loader-parent"><div class="loader">Loading...</div></div>
+	</ons-template>
+	
+	
+</body>	
+</html>

@@ -1,0 +1,316 @@
+{
+	"app": {
+		"title": "FeeSche",
+		"ons_fab_var_pos": "top"
+	},
+	"menu": {
+		"schedule": "Schedule",
+		"feed": "Feed",
+		"filter": "Filter",
+		"crawl": "Clawl",
+		"alarm": "Alarm",
+		"about": "About",
+        "config": "Config",
+		"subscription": "Subscriptions"
+	},
+	"setting": {
+		"feed": {
+			"legend": {
+				"name": "Feed"
+			},
+			"name": {
+				"name": "Name *",
+				"placeholder": "Any name",
+				"required": "The name of Feed is a required."
+			},
+			"url": {
+				"name": "URL *",
+				"placeholder": "e.g. http://example.com/",
+				"required": "The URL of Feed is a required.",
+				"pattern": "The format of the Feed URL is incorrect.",
+				"invalid": {
+					"title": "URL access error",
+					"text1": "Unable to access URL.",
+					"text2": "Please enter an accessible Feed URL."
+				}
+			},
+        	"retention_days": {
+				"name": "Retention days *",
+				"placeholder": "Number of days to keep the feed",
+				"prefix": "Delete after",
+				"suffix": "days",
+				"required": "Retention days is a required.",
+				"pattern": "Please only enter an integer between 1 and 99999"
+			},
+			"delete_note": "Deleting the feed will also delete the feed event."
+		},
+		"filter": {
+			"legend": {
+				"name": "Filter"
+			},
+			"group": {
+				"name": "Group *",
+				"placeholder": "Filter Group Name",
+				"required": "Group is a required."
+			},
+			"color": {
+				"name": "Color *",
+				"placeholder": "Filter Group Color",
+				"required": "Color is a required.",
+				"pattern": "Color is incorrect."
+			},
+			"text": {
+				"name": "Text *",
+				"placeholder": "Filter string to be applied to the feed",
+				"pattern": "When adding, the character string is a required item."
+			}
+		},
+		"crawl": {
+			"legend": {
+				"name": "Feed Crawl"
+			},
+			"interval": {
+				"name": "Interval Hour *",
+				"placeholder": "Time interval to retrieve a feed",
+				"prefix": "Every",
+				"suffix": "hours",
+				"required": "Interval is a required.",
+				"pattern": "Please enter an integer between 1 and 99 hours for Interval",
+				"notes": "Notes) Depending on the state of the device, the acquisition interval may be shifted."
+			},
+			"history": {
+				"next": " (Next)",
+				"header": "Feed crawl start time"
+			}
+		},
+		"alarm": {
+			"legend": {
+				"name": "Feed Alarm"
+			},
+			"alarm_hour": {
+				"name": "Alarm activation time *",
+				"placeholder": "Time to start the feed alarm",
+				"suffix": "o'clock",
+				"required": "Alarm activation time is a required item.",
+				"pattern": "Alarm activation time must be between 0 and 23 o'clock",
+				"notes": "Notes) Depending on the state of the device, the start time may be shifted."
+			},
+			"history": {
+				"next": " (Next)",
+				"header": "Feed alarm time"
+			}
+		},
+		"config": {
+			"legend": {
+				"name": "Config"
+			},
+			"firstday_of_week": {
+				"name": "Start day of the week of the schedule *",
+				"placeholder": "Start day of the week of the schedule",
+				"required": "Start day of the week of the schedule is a required field."
+			},
+			"day_of_week": {
+				"sunday": "Sunday",
+				"monday": "Monday",
+				"tuesday": "Tuesday",
+				"wednesday": "Wednesday",
+				"thursday": "Thursday",
+				"friday": "Friday",
+				"saturday": "Saturday"
+			},
+			"event_limit": {
+				"name": "Feed event display upper limit number *",
+				"placeholder": "Maximum number of cases",
+				"required": "Feed event display upper limit number is a required.",
+				"pattern": "Please enter only an integer from 0 to 99 for the maximum number of feed event indications.",
+				"notes": "When set to 0, all items are displayed. After 1, only the specified number is displayed."
+			}
+		}		
+	},
+	"message": {
+		"welcome": {
+			"title": "Welcome to FeeSche!",
+			"message1": "Thank you for downloading. ",
+    		"message2": "Tap \"?\" On each screen to display the help.",
+    		"message3": "Pull this screen down to get the feed.",
+			"message4": "Please enjoy a nice feed life!"            
+		},
+		"save": {
+			"success": "Saved",
+			"failure": "Failed to save"
+		},
+        "date_update": {
+			"success": "Updated date",
+			"failure": "Failed to update the date"
+		},
+		"delete": {
+			"confirm": {
+				"title": "Delete Confirmation",
+				"message": "Delete Are you sure you want to?"
+			},
+			"success": "Deleted",
+			"failure": "Failed to delete"
+		},
+        "shown": {
+			"confirm": {
+				"title": "Confirmed read",
+				"message": "Are you sure you want to mark all displayed events as already read?"
+			},
+			"success": "Set to read",
+			"failure": "Failed to set read"
+		},
+		"crawrl": {
+			"confirm": {
+				"title": "Confirm crawl timer start",
+				"message": "Are you sure to start feed crawl timer?"
+			},
+        	"start": {
+        	    "success": "Crawl timer started",
+        	    "failure": "Failed to start crawl timer"
+			},
+			"stop": {
+                "success": "Crawl timer stoped",
+        	    "failure": "Failed to stop crawl timer"
+			},
+			"failure": "Crawl timer setting failed"
+		},
+		"order": {
+			"success": "Changed the order",
+			"failure": "Failed to change the order"
+		},
+		"alarm": {
+			"active": "Turned on the alarm",
+			"passive": "Turned off the alarm",
+			"success": "Alarm seted"
+		},
+		"finish": {
+			"confirm": {
+				"title": "Confirm quit",
+				"message": "Are you sure you want to quit the application?"
+			}
+		}
+	},
+    "schedule": {
+        "no_feed_event": "No feed event",
+        "filter_all": "Show all",
+        "filter_none": "Show none filter",
+        "hook_initial": "Pull down to refresh",
+        "hook_preaction": "Release to refresh",
+        "hook_action": "Loading data. Please wait..."
+    },
+	"about" : {
+		"author": "Author",
+		"icon": "About Icon",
+		"history": {
+			"header": "Change Log",
+			"ver01_00_00": {
+				"version": "ver1.0.0",
+				"message": "New Release"
+			}
+		}		
+	},
+	"subscription": {
+		"status": "Status",
+		"status_free": "Free",
+		"status_monthly": "Monthly billing",
+		"status_yearly": "Yearly billing",
+		"benefits": "Purchase benefits",
+		"benefits1": "Ads will be hidden",
+		"benefits2": "You can register feeds indefinitely",
+		"benefits3": "You can register an unlimited number of filters",
+		"benefits4": "You can set the timer at any time interval you like",
+		"benefits5": "You can set the alarm of the feed event unlimitedly and at any time you like",
+		"subscription": "Subscription",
+		"subscription_monthly": "Monthly billing",
+		"subscription_yearly": "Yearly billing",
+		"subscription_per_month": "per month",
+		"subscription_per_year": "per year",
+		"subscription_cancel": "Cancel subscription",
+		"subscription_cancel_monthly": "Cancel monthly billing",
+		"subscription_cancel_yearly": "Cancel yearly billing"
+	},
+	"intro": {
+		"schedule_list": {
+    		"overview": "On this screen, you can see the events read from the feed in calendar format.",
+    		"overview_list": "On this screen, you can see the events read from the feed in list format.",
+            "overview_list_new": "On this screen, you can see the newly added events in the list from the events read from the feed.",
+        	"overview_list_alarm": "On this screen, you can see the events that are read from the feed, with the alarms set in list form.",
+            "pull_to_hook": "Pull the screen down to get the feed. You can also obtain it with the update button on the toolbar.",
+			"title": "This is the month of the calendar currently displayed. After moving to the front and back, tap here to return to the current month.",
+			"next": "Display the next month. You can also switch by swiping the screen to the right.",
+			"prev": "Display the previous month. You can also switch by swiping the screen to the left.",
+			"type": "You can switch the display format of the schedule by monthly calendar, monthly list, newly added list, and alarm list.",
+			"event": "This is an event read from the feed. You can change the background color with a filter. A new event is attached to the new border.",
+			"list_event": "This is an event read from the feed. You can change the circle color with a filter.",
+        	"list_event_new": "Of the events read from the feed, it is the pickup of new additions. You can change the circle color with a filter.",
+    		"list_event_alarm": "Of the events read from the feed, those picked up with alarms set. You can change the circle color with a filter.",
+        	"filter": "You can narrow down the events read from the feed by filter conditions.",
+			"shown": "You can make the displayed event already read."
+		},
+		"schedule_detail": {
+			"overview": "On this screen you can see the details of the events read from the feed on a daily basis.",
+			"title": "It is the date displayed at present.",
+			"next": "Display the next day. You can also switch by swiping the screen to the right.",
+			"prev": "Display the previous day. You can also switch by swiping the screen to the left.",
+			"entry_title": "This is an event read from the feed. You can change the background color with a filter.",
+			"entry_content": "Details of the event read from the feed.",
+			"entry_link": "The browser opens, you can display the article of the event on the web page.",
+			"entry_share": "Events can be shared.",
+			"entry_alarm": "You can set an alarm on the event. If an alarm is set, you will be notified when the designated time of the day arrives. Up to 5 items can be registered for free.",
+			"entry_delete": "You can delete an event."
+		},
+		"about": {
+			"overview": "This screen shows information on this application.",
+			"share": "You can share this application.",
+			"rate": "You can evaluate this application. If you like, thank you for your high evaluation!",
+			"contact": "If you have any inquiries, requests etc, please click here."
+		},
+		"alarm": {
+			"overview": "In this screen, you can set up to notify the feed event on the same day.",
+			"alarm_hour": "You can enter the time to be notified (0 to 23 o'clock).",
+			"save": "You can save alarm information and set a notification schedule. It can not be pressed if input is incomplete.",
+			"history": "This is the history of the time when the alarm notification was executed.",
+			"delete": "Delete the alarm history."
+		},
+		"feed_list": {
+			"overview": "In this screen, you can see the list of feeds to acquire.",
+			"feed_name": "It is the title of the feed.",
+			"feed_url": "The URL of the feed.",
+			"feed_retention_days": "The number of days to keep the feed. It will be deleted automatically after this number of days.",
+			"modify": "Edit the feed.",
+			"delete": "Delete the feed.",
+			"add": "You will add a feed. Up to 10 items can be registered for free."
+		},
+		"feed_detail": {
+			"overview": "In this screen, you can set the feed to be acquired.",
+			"feed_name": "It is the title of the feed. An arbitrary character string can be set.",
+			"feed_url": "The URL of the feed. Please enter the URL distributed in one of RSS 1.0, RSS 2.0, Atom format.",
+			"feed_retention_days": "The number of days to keep the feed. An integer from 1 to 99999 can be set.",
+			"save": "Save the feed information. When adding, we will automatically acquire the feed. It can not be pressed if input is incomplete."
+		},
+		"filter_list": {
+			"overview": "In this screen, you can see the list of filters to be applied to the feed event.",
+			"filter_name": "Filter title and background color.",
+			"filter_text": "It is a character string to actually filter. Alphabets are not case sensitive.",
+			"sort": "You can sort the filters. The higher the filter, the higher the priority.",
+			"modify": "Edit the filter.",
+			"delete": "Delete the filter.",
+			"add": "Add a filter. Up to 5 items can be registered for free."
+		},
+		"filter_detail": {
+			"overview": "You can set the filter on this screen.",
+			"filter_name": "It is the title of the filter. An arbitrary character string can be set.",
+			"filter_color": "The background color of the filter. Any color can be set.",
+			"filter_text": "Filter string. An arbitrary character string can be set. When editing, leave it blank to delete it.",
+			"add": "Add filter string line.",
+			"save": "Save filter information. It can not be pressed if input is incomplete."
+		},
+		"crawl": {
+			"overview": "In this screen, you can set the time interval for crawling feeds.",
+			"interval": "Time interval to crawl feeds. Any integer from 1 to 99 can be set. The free version is fixed for 12 hours.",
+			"save": "Save the crawl timer information and crawl the feed. It can not be pressed if input is incomplete.",
+			"history": "This is the history of the time when the feed was crawled.",
+			"delete": "Deletes the crawl timer history."
+		}
+	}
+}

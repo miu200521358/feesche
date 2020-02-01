@@ -1,0 +1,39 @@
+<ons-page modifier="normal">
+
+	<ons-fab position="{{ 'app.ons_fab_var_pos' | translate }} right"  ng-disabled="!canAdd">
+		<ons-icon id="add" icon="fa-plus" ng-click="detailAdd(groupList.length);"></ons-icon>
+	</ons-fab>
+	
+	<my-contents>
+		<div data-as-sortable="dragControlListeners" data-ng-model="groupList">
+			<!-- D&D可能なリスト -->
+			<ons-card data-ng-repeat="g in groupList" data-as-sortable-item>
+				<div>
+					<dl>
+						<dt style="background-color: {{g.col_color}};" class="filter-group filter_name">{{g.col_name}}</dt>
+						<dd>
+							<ul class="filter_text">
+								<li ng-repeat="t in textList" ng-show="t.col_group_id == g.col_id">
+									{{t.col_text}}
+								</li>
+							</ul>
+						</dd>
+					</dl>
+					<div class="card-menu">
+						<ons-button class="button button--material--flat sort" data-as-sortable-item-handle>
+							<ons-icon icon="fa-sort"></ons-icon>
+						</ons-button>
+						<ons-button class="button button--material--flat modify">
+							<ons-icon icon="fa-pencil" ng-click="detailModify(g);"></ons-icon>
+						</ons-button>
+						<ons-button class="button button--material--flat delete">
+							<ons-icon class="delete" icon="fa-trash" ng-click="delete(g);"></ons-icon>
+						</ons-button>
+					</div>
+				</div>
+			</ons-card>
+		</div>
+		
+	<my-contents>
+
+</ons-page>

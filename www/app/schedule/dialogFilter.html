@@ -1,0 +1,19 @@
+<ons-dialog modifier="material" cancelable>
+    <ons-list-header modifier="material">
+        {{ "menu.filter" | translate }}   
+    </ons-list-header>
+    <!-- 全件表示を常に入れる -->
+    <ons-list-item modifier="material" tappable style="background-color: #999999;" tap-background-color="#999999" ng-click="filterSchedule(-1, '#999999');">
+        <span style="color: #FFFFFF;">{{ "schedule.filter_all" | translate }}</span>
+    </ons-list-item>
+    <!-- フィルタ無しを常に入れる -->
+    <ons-list-item modifier="material" tappable style="background-color: #999999;" tap-background-color="#999999" ng-click="filterSchedule(99999999, '#999999');">
+        <span style="color: #FFFFFF;">{{ "schedule.filter_none" | translate }}</span>
+    </ons-list-item>
+    <!-- フィルタグループ -->
+    <ons-list ng-repeat="f in filterGroups">
+        <ons-list-item modifier="material" tappable style="background-color: {{f.col_color}};" tap-background-color="{{f.col_color}}" ng-click="filterSchedule(f.col_id, f.col_color);">
+            <span style="color: #FFFFFF;">{{f.col_name}}</span>
+        </ons-list-item>
+    </ons-list>
+</ons-dialog>
